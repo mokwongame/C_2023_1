@@ -1,3 +1,11 @@
+/*-------------------------------------------------------------------
+LibConsole.h: Library for Console Applications
+Author: ictplusud@gmail.com (Department of Game SW Engineering, Mokwon University)
+
+Copyright ¨Ï 2023-Forever Mokwon Game, Korea.
+All Rights Reserved. Personal and non-commercial purpose only.
+-------------------------------------------------------------------*/
+
 #pragma once
 
 #include <stdio.h>
