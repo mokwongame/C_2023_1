@@ -1,5 +1,0 @@
-﻿  DataType(int).c
-D:\C_2023_1\DataType\DataType(int).c(40,16): warning C4101: 'uk' :참조되지 않은 지역 변수입니다.
-D:\C_2023_1\DataType\DataType(int).c(39,17): warning C4101: 'uj' :참조되지 않은 지역 변수입니다.
-D:\C_2023_1\DataType\DataType(int).c(41,21): warning C4101: 'ul' :참조되지 않은 지역 변수입니다.
-  DataType.vcxproj -> D:\C_2023_1\DataType\x64\Debug\DataType.exe
