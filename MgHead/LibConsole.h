@@ -16,7 +16,8 @@ All Rights Reserved. Personal and non-commercial purpose only.
 /*-------------------------------------------------------------------
 Definition of Data or Types
 -------------------------------------------------------------------*/
-enum {
+// 열거형: 콘솔 색깔
+enum CON_COLOR {
 	BLACK,
 	DARK_BLUE,
 	DARK_GREEN,
