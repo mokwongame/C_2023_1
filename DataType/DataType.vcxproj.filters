@@ -18,5 +18,11 @@
     <ClCompile Include="DataType(int).c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="DataType(float).c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DtatType(bool).c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
