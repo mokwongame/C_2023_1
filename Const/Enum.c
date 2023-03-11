@@ -39,4 +39,11 @@ void main()
 	const unsigned int k2 = 30u; // 상수인 무부호 기본 정수 k를 30으로 초기화
 	printf("%u\n", k2);
 	long double x = 1.234l;
+
+	// 리터럴: 8진수(0으로 시작)와 16진수(0x로 시작)
+	int m = 0141; // 8진수 리터럴 표현
+	int m2 = 0x61; // 16진수 리터럴 표현
+	printf("%d = %d\n", m, m2);
+	char c2 = (char)m;
+	printf("%c\n", c2);
 }
