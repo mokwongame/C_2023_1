@@ -1,7 +1,6 @@
 /*-------------------------------------------------------------------
 LibConsole.h: Library for Console Applications
 Author: ictplusud@gmail.com (Department of Game SW Engineering, Mokwon University)
-
 Copyright ⓒ 2023-Forever Mokwon Game, Korea.
 All Rights Reserved. Personal and non-commercial purpose only.
 -------------------------------------------------------------------*/
@@ -39,20 +38,20 @@ enum CON_COLOR {
 /*-------------------------------------------------------------------
 Input Functions
 -------------------------------------------------------------------*/
-// 실수 입력 얻기
-double getdbl()
-{
-	double x;
-	scanf_s("%lg", &x);
-	return x;
-}
-
 // 정수 입력 얻기
 int getint()
 {
 	int i;
 	scanf_s("%d", &i);
 	return i;
+}
+
+// 실수 입력 얻기
+double getdbl()
+{
+	double x;
+	scanf_s("%lg", &x);
+	return x;
 }
 
 // 키보드에 있는 모든 키를 입력 받음: 단순 알파벳이나 숫자는 _getch()를 이용
@@ -190,7 +189,6 @@ void settextcol(int color)
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), backtextcol);
 }
 
-// 콘솔 전체 배경색과 글자색 변경
 void setconcol(int backcol, int textcol)
 {
 	char cmd[] = "color 00";
