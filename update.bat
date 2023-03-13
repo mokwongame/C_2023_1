@@ -1,4 +1,4 @@
 chcp 65001
 git add --all
-git commit -m "MyFirstApp 프로젝트 추가"
+git commit -m "main  함수 정의"
 git push -u origin master
