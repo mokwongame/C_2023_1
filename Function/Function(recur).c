@@ -8,7 +8,7 @@
 // sum() 함수 목적: 1부터 n까지 더하기
 int sum(int n)
 {
-	if (n <= 1) return 1; // 종료 조건: 재귀 호출하지 않는 구문, sum()를 호출하지 않음
+	if (n <= 1) return 1; // 종료 조건: 재귀 호출하지 않는 구문, sum()을 호출하지 않음
 	else return n + sum(n - 1);
 }
 
@@ -20,11 +20,11 @@ int sumFor(int n)
 	return sum;
 }
 
-// 팩토리어(factorial), 계승
+// 팩토리얼(factorial), 계승
 // 5! = 1*2*3*4*5
 long long factorial(long long n)
 {
-	if (n <= 1) return 1; // 종료 조건: 재귀 호출하지 않는 구문, sum()를 호출하지 않음
+	if (n <= 1) return 1; // 종료 조건: 재귀 호출하지 않는 구문, factorial()을 호출하지 않음
 	else return n * factorial(n - 1);
 }
 

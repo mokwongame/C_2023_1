@@ -1,4 +1,4 @@
 chcp 65001
 git add --all
-git commit -m "Function 프로젝트 추가"
+git commit -m "Function(recur).c의 오타 수정"
 git push -u origin master
