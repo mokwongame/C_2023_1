@@ -1,4 +1,4 @@
 chcp 65001
 git add --all
-git commit -m "restore.bat을 간단한 코드로 수정"
+git commit -m "Array 프로젝트 추가"
 git push -u origin master
