@@ -40,7 +40,7 @@ enum CON_COLOR {
 Input Functions
 -------------------------------------------------------------------*/
 // 실수 입력 얻기
-double getdbl()
+inline double getdbl()
 {
 	double x;
 	scanf_s("%lg", &x);
@@ -48,7 +48,7 @@ double getdbl()
 }
 
 // 정수 입력 얻기
-int getint()
+inline int getint()
 {
 	int i;
 	scanf_s("%d", &i);
@@ -56,7 +56,7 @@ int getint()
 }
 
 // 키보드에 있는 모든 키를 입력 받음: 단순 알파벳이나 숫자는 _getch()를 이용
-int getkey()
+inline int getkey()
 {
 	char key = _getch();
 	if (key > 0) return (int)key;
@@ -70,13 +70,13 @@ int getkey()
 }
 
 // 현재 키가 눌러진 상태를 비동기(asynchronous)로 점검: 키 입력을 기다리지 않고 바로 반환; 키는 가상 키(virtual key); 가상 키는 WinUser.h에 정의됨
-bool iskeydown(int key)
+inline bool iskeydown(int key)
 {
 	return GetAsyncKeyState(key) & 0x8000;
 }
 
 // 키 입력까지 기다리기
-void waitkey()
+inline void waitkey()
 {
 	while (!_kbhit());
 }
@@ -85,31 +85,31 @@ void waitkey()
 Output Functions
 -------------------------------------------------------------------*/
 // double 출력
-void putdbl(double x)
+inline void putdbl(double x)
 {
 	printf("%g", x);
 }
 
 // double 출력 + 줄 삽입
-void putdblln(double x)
+inline void putdblln(double x)
 {
 	printf("%g\n", x);
 }
 
 // int 출력
-void putint(int n)
+inline void putint(int n)
 {
 	printf("%d", n);
 }
 
 // int 출력 + 줄 삽입
-void putintln(int n)
+inline void putintln(int n)
 {
 	printf("%d\n", n);
 }
 
 // 줄 삽입
-void putln()
+inline void putln()
 {
 	printf("\n");
 }
@@ -118,7 +118,7 @@ void putln()
 Console Functions
 -------------------------------------------------------------------*/
 // 커서 크기 얻기: 1~100 사이 값(%로 이해)
-int getcursorsize()
+inline int getcursorsize()
 {
 	const HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
 	CONSOLE_CURSOR_INFO info;
@@ -127,7 +127,7 @@ int getcursorsize()
 }
 
 // 커서 가시성 얻기: 보이면 true, 안 보이면 false
-bool getcursorview()
+inline bool getcursorview()
 {
 	const HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
 	CONSOLE_CURSOR_INFO info;
@@ -136,7 +136,7 @@ bool getcursorview()
 }
 
 // 콘솔의 현재 배경색과 글자색 얻기: 출력은 색깔 코드(0~255 = backcol << 4 + textcol)
-int getconbacktextcol()
+inline int getconbacktextcol()
 {
 	CONSOLE_SCREEN_BUFFER_INFO csbi;
 	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
@@ -144,14 +144,14 @@ int getconbacktextcol()
 }
 
 // 콘솔의 현재 배경색 얻기: 출력은 색깔 코드(0~15)
-int getconbackcol()
+inline int getconbackcol()
 {
 	int backtextcol = getconbacktextcol();
 	return backtextcol >> 4;
 }
 
 // 콘솔의 현재 글자색 얻기: 출력은 색깔 코드(0~15)
-int getcontextcol()
+inline int getcontextcol()
 {
 	CONSOLE_SCREEN_BUFFER_INFO csbi;
 	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
@@ -159,7 +159,7 @@ int getcontextcol()
 }
 
 // 커서 크기 조정: 기본은 25; 1~100까지 가능(%로 이해)
-void setcursorsize(int size)
+inline void setcursorsize(int size)
 {
 	CONSOLE_CURSOR_INFO info;
 	info.bVisible = (BOOL)getcursorview();
@@ -168,7 +168,7 @@ void setcursorsize(int size)
 }
 
 // 배경색 바꾸기: 기본은 BLACK
-void setbackcol(int color)
+inline void setbackcol(int color)
 {
 	int textcol = getcontextcol();
 	WORD backtextcol = (color << 4) | textcol;
@@ -176,14 +176,14 @@ void setbackcol(int color)
 }
 
 // 배경색과 글자색 바꾸기
-void setbacktextcol(int backcol, int textcol)
+inline void setbacktextcol(int backcol, int textcol)
 {
 	WORD backtextcol = (backcol << 4) | textcol;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), backtextcol);
 }
 
 // 글자색 바꾸기: 기본은 GRAY
-void settextcol(int color)
+inline void settextcol(int color)
 {
 	int backcol = getconbackcol();
 	WORD backtextcol = (backcol << 4) | color;
@@ -191,7 +191,7 @@ void settextcol(int color)
 }
 
 // 콘솔 전체 배경색과 글자색 변경
-void setconcol(int backcol, int textcol)
+inline void setconcol(int backcol, int textcol)
 {
 	char cmd[] = "color 00";
 	char back[2], text[2];
@@ -203,26 +203,26 @@ void setconcol(int backcol, int textcol)
 }
 
 // clear screen: 화면 지우기
-void clrscr()
+inline void clrscr()
 {
 	system("cls");
 }
 
 // 콘솔 잠시 멈춤
-void pausecon()
+inline void pausecon()
 {
 	system("pause");
 }
 
 // 콘솔을 sleeptime(단위: 초) 동안 잠 재우기
-void sleepcon(double sleeptime)
+inline void sleepcon(double sleeptime)
 {
 	int timems = (int)(sleeptime * 1000 + 0.5); // 반올림
 	Sleep(timems);
 }
 
 // (x, y) 위치로 커서 이동: x, y는 0부터 시작
-void gotoxy(int x, int y)
+inline void gotoxy(int x, int y)
 {
 	COORD pos;
 	pos.X = (SHORT)x, pos.Y = (SHORT)y;
@@ -230,7 +230,7 @@ void gotoxy(int x, int y)
 }
 
 // 커서 감추기
-void hidecursor()
+inline void hidecursor()
 {
 	CONSOLE_CURSOR_INFO info;
 	info.bVisible = FALSE;
@@ -239,7 +239,7 @@ void hidecursor()
 }
 
 // 커서 보이기
-void showcursor()
+inline void showcursor()
 {
 	CONSOLE_CURSOR_INFO info;
 	info.bVisible = TRUE;
@@ -248,7 +248,7 @@ void showcursor()
 }
 
 // (x, y) 위치의 attribute 얻기: 실패하면 -1을 반환
-int readconattr(int x, int y)
+inline int readconattr(int x, int y)
 {
 	WORD attr;
 	COORD pos;
@@ -259,7 +259,7 @@ int readconattr(int x, int y)
 }
 
 // (x, y) 위치의 배경색을 color로 바꾸기: 실패하면 false를 반환
-bool writebackcol(int x, int y, int color)
+inline bool writebackcol(int x, int y, int color)
 {
 	WORD attr = readconattr(x, y);
 	WORD textcol = attr % 16;
@@ -273,7 +273,7 @@ bool writebackcol(int x, int y, int color)
 }
 
 // (x, y) 위치의 배경색과 글자색 바꾸기: 실패하면 false를 반환
-bool writebacktextcol(int x, int y, int backcol, int textcol)
+inline bool writebacktextcol(int x, int y, int backcol, int textcol)
 {
 	WORD attr = readconattr(x, y);
 	WORD backtextcol = (backcol << 4) | textcol;
@@ -286,7 +286,7 @@ bool writebacktextcol(int x, int y, int backcol, int textcol)
 }
 
 // (x, y) 위치의 글자색을 color로 바꾸기: 실패하면 false를 반환
-bool writetextcol(int x, int y, int color)
+inline bool writetextcol(int x, int y, int color)
 {
 	WORD attr = readconattr(x, y);
 	attr = ((attr >> 4) << 4) | color;
@@ -301,8 +301,14 @@ bool writetextcol(int x, int y, int color)
 Console Output Functions
 -------------------------------------------------------------------*/
 // (x, y)로 이동해서 문자열 s 출력
-void putsxy(int x, int y, const char* s)
+inline void putsxy(int x, int y, const char* s)
 {
 	gotoxy(x, y);
 	puts(s);
 }
+
+/*-------------------------------------------------------------------
+Revision Records
+---------------------------------------------------------------------
+C(2023-02-05): create for C compiler
+-------------------------------------------------------------------*/
