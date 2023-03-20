@@ -18,7 +18,7 @@
     <None Include="DataTypeint" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DataType%28int%29.c">
+    <ClCompile Include="DataType%28char%29.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

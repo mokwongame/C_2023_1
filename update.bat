@@ -1,4 +1,4 @@
 chcp 65001
 git add --all
-git commit -m "Array 프로젝트 추가"
+git commit -m "char 자료형 연습"
 git push -u origin master

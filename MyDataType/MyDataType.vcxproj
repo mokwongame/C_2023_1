@@ -130,7 +130,7 @@
     <None Include="DataTypeint" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DataType%28int%29.c" />
+    <ClCompile Include="DataType%28char%29.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
