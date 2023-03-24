@@ -20,7 +20,7 @@ void main()
 	// 정적(static) 메모리: 정지(컴파일할 때 메모리 할당); 실행 파일을 만드는 단계
 	int ars[] = { 1, 2, 3, 4, 5 };
 
-	// 동적(dynamic) 메모리: 동작(실행시간(runtime)할 때 메모리 할당); 실행 파일을 실행한 경우
+	// 동적(dynamic) 메모리: 동작(실행시간(runtime)에서 메모리 할당); 실행 파일을 실행한 경우
 	intptr arptr = NULL; // int 자료형의 저장 공간: 4 바이트
 	int arsize = 100;
 	void* pvoid = NULL; // 자료형을 정하지 않은 포인터; 일반적인 자료형의 포인터 저장 공간
