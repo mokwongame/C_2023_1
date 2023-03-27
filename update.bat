@@ -1,4 +1,4 @@
 chcp 65001
 git add --all
-git commit -m "기호 상수 정의 추가"
+git commit -m "실습 #1 작성 방법 소개"
 git push -u origin master
