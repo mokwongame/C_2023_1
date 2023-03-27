@@ -14,5 +14,11 @@ void main()
 	// 1 I l
 	long long k = 20LL; // LL: long long
 	float z = -45.67f; // f: float
+
+	// 이스케이프 시퀀스(escape sequence): 이스케이프 문자는 \가 쓰임
+	char ch2 = '\n'; // 엔터(new line)
+	char ch3 = '\\'; // \를 쓸 때는 \\ 두번 사용
+	char ch4 = '\t'; // 탭(tab)
+	char ch4 = '\a'; // 알람(alarm)
 }
 
