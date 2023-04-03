@@ -21,6 +21,9 @@
     <ClCompile Include="MyConsole.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Console(int,double).c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LibConsole.h">
