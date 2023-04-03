@@ -21,5 +21,8 @@
     <ClCompile Include="Op(double).c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="PrintOpType.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
