@@ -1,4 +1,4 @@
 chcp 65001
 git add --all
-git commit -m "실습 #2(색깔과 연산자) 예시"
+git commit -m "SimpleCalc 프로젝트 추가"
 git push -u origin master
