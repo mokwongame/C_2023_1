@@ -27,5 +27,8 @@
     <ClCompile Include="Cond(bool).c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Cond(switch).c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

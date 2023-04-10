@@ -4,9 +4,17 @@
 void main()
 {
 	// false: 0; true: 0이 아닌 숫자(예, 1)
-	bool ans = true;
+	bool ans = false;
 	//ans = false;
 	//printf("ans = %d\n", ans);
+
+	// ans == true => nAns = 1, ans == false => nAns = 0
+	int nAns;
+	//if (ans) nAns = 1;
+	//else nAns = 0;
+	// 삼항 조건 연산자
+	nAns = (ans) ? 1 : 0; // (판단식) ? a : b => true면 a 선택, false면 b 선택
+	printf("nAns = %d\n", nAns);
 
 	printf("X: ");
 	bool X = getint();
