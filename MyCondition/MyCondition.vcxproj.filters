@@ -18,5 +18,8 @@
     <ClCompile Include="Cond(if).c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Cond%28elseif%29.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
