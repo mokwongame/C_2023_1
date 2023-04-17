@@ -24,5 +24,8 @@
     <ClCompile Include="dowhile.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="for.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
