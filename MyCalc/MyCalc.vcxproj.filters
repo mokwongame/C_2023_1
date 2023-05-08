@@ -18,5 +18,8 @@
     <ClCompile Include="SimpleCalc.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleCalc(fun).c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
