@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h> // 시간 함수에 대한 헤더 파일
 #include "LibConsole.h"
 #include "LibGameTool.h"
 
@@ -15,6 +16,7 @@ void startScene();
 void finishScene();
 void mainGame();
 calcdata makeRandOp(int nRandMax);
+int getComAns(calcdata data);
 
 void main()
 {
@@ -54,7 +56,18 @@ void mainGame()
 		calcdata data = makeRandOp(20); // 위 3줄을 함수로 정의
 		printf("문제: %d %c %d ?\n", data.x, data.op, data.y);
 		puts("답은?");
-		int ans = getint();
+
+		// 경과 시간: 끝 시간 - 시작 시간
+		clock_t startTime = clock(); // 시작 시간; clock(): 현재 시간(exe 실행한 시간)을 msec 단위로 측정
+		int myAns = getint(); // 사용자 입력
+		clock_t endTime = clock(); // 끝 시간
+		double calcTime = (endTime - startTime)*1e-3; // 경과 시간: sec 단위; 1 msec = 0.001 sec = 1e-3 sec
+
+		int comAns = getComAns(data);
+		if (myAns == comAns)
+			puts("답이 맞았습니다!");
+		else puts("답이 틀렸네요 ㅠㅠ");
+		printf("\n\n암산 시간: %g 초\n\n", calcTime);
 	}
 }
 
@@ -66,4 +79,14 @@ calcdata makeRandOp(int nRandMax)
 	data.y = randrange(1, nRandMax+1);
 	data.op = '+';
 	return data;
+}
+
+int getComAns(calcdata data)
+{
+	int ans = 0;
+	switch (data.op)
+	{
+	case '+': ans = data.x + data.y;
+	}
+	return ans;
 }
