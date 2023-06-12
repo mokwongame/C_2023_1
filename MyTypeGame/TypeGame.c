@@ -1,6 +1,7 @@
 #include <stdio.h>
-#include <string.h>
+#include <string.h> // strlen() 사용
 #include <stdlib.h> // abs() 사용
+#include <time.h>	// clock() 사용
 #include "LibGameTool.h"
 
 #define STR_MAX	(500)	// 문자열의 문자 개수의 최대값
@@ -12,6 +13,7 @@ char quotes[][STR_MAX] = { "I'm not here to be perfect, I'm here to be real.",
 "Success is not final, failure is not fatal: It is the courage to continue that counts.",
 	"If you can dream it, you can do it." };
 int nQuote;
+int totalScore; // 전체 득점
 char strIn[STR_MAX]; // char의 배열 = 문자열; 문자열 입력을 받기 위해 메모리 공간을 STR_MAX만큼 확보
 
 // 함수 선언
@@ -19,6 +21,7 @@ void initGame();
 int printRandStr();
 void inputStr();
 int calcScore(int nRand);
+void printTypeSpeed(int score, double typeTime);
 
 void main()
 {
@@ -26,8 +29,12 @@ void main()
 	while (1)
 	{
 		int nRand = printRandStr();
+		clock_t startTime = clock(); // 시간 측정: 프로그램 시작할 때 0으로 시간을 시작; 정밀도 msec
 		inputStr();
+		clock_t stopTime = clock();
+		double typeTime = (stopTime - startTime) * 0.001; // 초 단위로 계산한 시간
 		int score = calcScore(nRand);
+		printTypeSpeed(score, typeTime);
 	}
 }
 
@@ -36,6 +43,7 @@ void initGame()
 {
 	randseed();
 	nQuote = (int)(sizeof(quotes) / STR_MAX);
+	totalScore = 0;
 }
 
 // 입력 X, 출력은 int
@@ -64,7 +72,15 @@ int calcScore(int nRand)
 		if (quotes[nRand][i] == strIn[i]) score++;
 		else score--;
 	}
+	totalScore += score; // totalScore = totalScore + score
 	printf("득점: %d\n", score);
+	printf("전체 득점: %d\n", totalScore);
 	return score;
 	//return score - abs(nRandLen - nInputLen);
+}
+
+void printTypeSpeed(int score, double typeTime)
+{
+	double typeSpeed = score / typeTime * 60.; // 분당 타수
+	printf("분당 타수: %g\n\n", typeSpeed);
 }
