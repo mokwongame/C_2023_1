@@ -12,6 +12,28 @@ char quotes[][STR_MAX] = { "I'm not here to be perfect, I'm here to be real.",
 int nQuote;
 char strIn[STR_MAX]; // char의 배열 = 문자열; 문자열 입력을 받기 위해 메모리 공간을 STR_MAX만큼 확보
 
+// 함수 선언
+void initGame();
+int printRandStr();
+void inputStr();
+
+void main()
+{
+	initGame();
+	while (1)
+	{
+		int nRand = printRandStr();
+		inputStr();
+	}
+}
+
+// 함수 정의
+void initGame()
+{
+	randseed();
+	nQuote = (int)(sizeof(quotes) / STR_MAX);
+}
+
 // 입력 X, 출력은 int
 int printRandStr()
 {
@@ -20,15 +42,8 @@ int printRandStr()
 	return nRand;
 }
 
-void main()
+void inputStr()
 {
-	randseed();
-	nQuote = (int)(sizeof(quotes) / STR_MAX);
-
-	while (1)
-	{
-		int nRand = printRandStr();
-		puts("\n\n문자열을 입력하세요:");
-		gets_s(strIn, STR_MAX - 1); // _s: safe(안전한); gets_s: safe gets; 문자열의 끝에는 0 문자가 들어가야 함; '0'가 아닌 숫자 0
-	}
+	puts("\n\n문자열을 입력하세요:");
+	gets_s(strIn, STR_MAX - 1); // _s: safe(안전한); gets_s: safe gets; 문자열의 끝에는 0 문자가 들어가야 함; '0'가 아닌 숫자 0
 }
