@@ -130,10 +130,15 @@
     <ClCompile Include="TestStrArray.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="TypeGame.c" />
+    <ClCompile Include="TestTypeGame.c" />
+    <ClCompile Include="TypeGame.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="TypeGameFun.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LibGameTool.h" />
+    <ClInclude Include="TypeGameFun.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

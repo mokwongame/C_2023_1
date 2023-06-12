@@ -21,9 +21,18 @@
     <ClCompile Include="TypeGame.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="TestTypeGame.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TypeGameFun.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LibGameTool.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeGameFun.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
